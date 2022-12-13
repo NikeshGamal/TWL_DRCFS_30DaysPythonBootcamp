@@ -1,5 +1,6 @@
 # Open the file in read-only mode
 pwd = open('passwords.txt','r')
+#open in read mode
 
 print(pwd)
 #file ko object lai print garxa
@@ -7,12 +8,21 @@ print(pwd)
 # Read the contents of the file
 actual_file = pwd.read()
 
-#read--> actual content haru read garxa then saves to actual_file
+#read--> actual content haru read garxa then return to actual_file
 
 # # Print the contents
 print(actual_file)
 #this prints the actual content 
-# pwd.close()
+pwd.close()
+
+#to ensure that once open it should be close --> to free the memory occupied by the opened file
+
+
+
+#-------------------------------------------------------------------------
+#-------------------------------------------------------------------------
+
+
 
 # we use the open() function to open the file in read-only mode.
 #  This means that we can read the contents of the file, 
@@ -38,14 +48,19 @@ print(actual_file)
 
 ###########################################################
 
-# # Open the file in write-only mode
-# file = open("my_file.txt", "w")
+# Open the file in write-only mode
+file = open("my_file.txt", "w")
+#w mode ---> if note present then the file is created  if present it opens the file
 
-# # Write some text to the file
-# file.write("Hello, world!")
+# Write some text to the file
 
-# # Close the file
-# file.close()
+file.write("Hello, world! I am Nikesh Gamal \n")
+file.write("30 Dashing Python course \n")
+
+#write method --> use to write to the file
+
+# Close the file
+file.close()
 ###########################################################
 
 # we use the open() function to open the file in write-only mode. 
@@ -71,14 +86,14 @@ print(actual_file)
 
 
 ###########################################################
-# # Open the file in append mode
-# file = open("my_file.txt", "a")
+# Open the file in append mode
+file = open("my_file.txt", "a")
 
 # # Append some text to the file
-# file.write("\nThis is an additional line.")
+file.write("\nThis is an additional line.")
 
 # # Close the file
-# file.close()
+file.close()
 ###########################################################
 
 # we use the open() function to open the file in append mode. 
@@ -104,13 +119,22 @@ print(actual_file)
 # even if an error occurs during the operation.
 
 
-# # Open the file in read-only mode using the `with` keyword
-# with open("my_file.txt", "r") as file:
-#     # Read the contents of the file
-#     contents = file.read()
+#-----------------------------------------------------------------------------------------------
 
-#     # Print the contents
-#     print(contents)
+# # Open the file in read-only mode using the `with` keyword
+
+#file inside the block will automatically will close 
+with open("my_file.txt", "r") as file:
+    print()
+    print("------------Content inside file using with------------")
+    # Read the contents of the file
+    contents = file.read()
+
+    # Print the contents
+    print(contents)
+
+
+#-----------------------------------------------------------------------------------------------
 
 # we use the with keyword to open the file in read-only mode. 
 # This creates a File object that is stored in the file variable. ith keyword to open the file in read-only mode. 
