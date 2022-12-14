@@ -1,0 +1,4 @@
+This is Mini's file 
+This is filehandling revision class 
+This line uses write function 
+THis line is to show append 
