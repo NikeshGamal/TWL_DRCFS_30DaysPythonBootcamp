@@ -41,7 +41,23 @@ def update_contact(old_details: tuple, new_details: tuple):
     # out.close()
     ###########################################################
     # 4. Remove the pass keyword once done
-    pass
+    old_name,_,_= old_details
+
+    with open("contact.txt","r") as file:
+        contents = file.read()
+        contents = tuple([ele for ele in contents.split("\n")[:-1]])
+
+    for index,content in enumerate(contents):
+        name,_,_=tuple(content.split(","))
+        if name == old_name:
+            line_num=index
+
+    print("*"*100)
+    print(line_num)
+    print("*"*100)
+
+    with open("contact.txt","w") as file:
+        pass
 
 def delete_contact(name: str):
     # same as update contact but instead of editing the list in the particular index you just delete the given index.
@@ -56,7 +72,7 @@ def import_contacts(filename) -> bool:
                 contacts.write(','.join(contact_details))
             contacts.write('\n')
             return 1
-    except Exception as e:
+    except Exception as E:
         print('CANNOT OPEN GIVEN FILE')
         return 0
 
@@ -70,7 +86,7 @@ def print_all():
             print(f'Name: {contact[0]}')
             print(f'Email: {contact[1]}')
             print(f'Phone: {contact[2]} \n')
-    except exception as e:
+    except Exception as e:
         print('No Contacts found.. INVALID FILE PATH. Please change the Relative path of the file in code to run it in windows properly')
 
 def check_int_type(inp: Any) -> int:
@@ -153,48 +169,69 @@ def main():
 
             with open("contact.txt","r") as file:
                 contents = file.read()
-                contents = [ele for ele in contents.split("\n")]
-            
+                contents = tuple([ele for ele in contents.split("\n")[:-1]])
+ 
             status = "NOT FOUND"
-            for line_num,content in enumerate(contents[:-1]):
-                old_details=tuple(content.split(","))
-                name,_,_=old_details
+
+            for line_num,content in enumerate(contents):
+                # print(content)
+                element=tuple(content.split(","))
+                print(element)
+                name,email,phone=element
                 if name == username:
-                    print("SEARCHED NAME FOUND:")
                     status="FOUND"
+                    old_details = tuple((name,email,phone))
                     break
 
-            if status=="NOT FOUND":
-                print("*"*100)
-                print("SEARCHED NAME NOT FOUND")
-                print("*"*100)
-            else:
-                print("Please, enter details for update:")
-                name = input('Enter Contact Name: ')
-                email = input('Enter Contact Email: ')
-                phone = input('Enter Contact Phone Number (Do not enter 0): ')
-                phone = check_int_type(phone)
-                result = (name,email,phone)
+            print("Please, enter details for update:")
+            name = input('Enter Contact Name: ')
+            email = input('Enter Contact Email: ')
+            phone = input('Enter Contact Phone Number (Do not enter 0): ')
+            phone = check_int_type(phone)
+            new_details = (name,email,phone)
+            print("*"*100)
+            print(old_details)
+            print("*"*100)
+            
+            print("*"*100)
+            print(new_details)
+            print("*"*100)
+            print("Outside function call")
+            print("*"*100)
+
+            update_contact(old_details,new_details)
+           
+            # if status=="NOT FOUND":
+            #     print("*"*100)
+            #     print("SEARCHED NAME NOT FOUND")
+            #     print("*"*100)
+            # else:
+            #     print("Please, enter details for update:")
+            #     name = input('Enter Contact Name: ')
+            #     email = input('Enter Contact Email: ')
+            #     phone = input('Enter Contact Phone Number (Do not enter 0): ')
+            #     phone = check_int_type(phone)
+            #     result = (name,email,phone)
                 
             
-                print('*'*100)
-                print(result)
-                print('*'*100)
-                print(old_details)
-            # update_contact(old_details,new_details)
-                with open("contact.txt","r") as file:
-                    old_details = file.readlines()[:]
-                    print('-'*100)
-                    print(old_details)
-                #     #unpacking of tuple into csv file save to res to update new_details
-                    name,email,phone=result
-                    res=','.join((name,email,str(phone)))
-                    old_details[line_num] =res
-                    new_details = tuple(old_details)
-                    print('-'*100)
-                    print(new_details)
-            # else:
-            #     print("Name Not FOUND to update! Enter correct Name")
+            #     print('*'*100)
+            #     print(result)
+            #     print('*'*100)
+            #     print(old_details)
+            # # update_contact(old_details,new_details)
+            #     with open("contact.txt","r") as file:
+            #         old_details = file.readlines()[:]
+            #         print('-'*100)
+            #         print(old_details)
+            #     #     #unpacking of tuple into csv file save to res to update new_details
+            #         name,email,phone=result
+            #         res=','.join((name,email,str(phone)))
+            #         old_details[line_num] =res
+            #         new_details = tuple(old_details)
+            #         print('-'*100)
+            #         print(new_details)
+            # # else:
+            # #     print("Name Not FOUND to update! Enter correct Name")
         elif task == 4:
             # complete this as homework
             pass
