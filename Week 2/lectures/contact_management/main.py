@@ -1,3 +1,4 @@
+from logging import exception
 from typing import Any
 
 def add_contact(name: str, email: str, phone: int) -> bool:
@@ -148,9 +149,54 @@ def main():
 
         elif task == 3:
             # complete this as homework
-            pass
+            username = input("Enter Name to Search: ")
+
+            with open("contact.txt","r") as file:
+                contents = file.read()
+                contents = [ele for ele in contents.split("\n")]
+            
+            status = "NOT FOUND"
+            for line_num,content in enumerate(contents[:-1]):
+                old_details=tuple(content.split(","))
+                name,_,_=old_details
+                if name == username:
+                    print("SEARCHED NAME FOUND:")
+                    status="FOUND"
+                    break
+
+            if status=="NOT FOUND":
+                print("*"*100)
+                print("SEARCHED NAME NOT FOUND")
+                print("*"*100)
+            else:
+                print("Please, enter details for update:")
+                name = input('Enter Contact Name: ')
+                email = input('Enter Contact Email: ')
+                phone = input('Enter Contact Phone Number (Do not enter 0): ')
+                phone = check_int_type(phone)
+                result = (name,email,phone)
+                
+            
+                print('*'*100)
+                print(result)
+                print('*'*100)
+                print(old_details)
+            # update_contact(old_details,new_details)
+                with open("contact.txt","r") as file:
+                    old_details = file.readlines()[:]
+                    print('-'*100)
+                    print(old_details)
+                #     #unpacking of tuple into csv file save to res to update new_details
+                    name,email,phone=result
+                    res=','.join((name,email,str(phone)))
+                    old_details[line_num] =res
+                    new_details = tuple(old_details)
+                    print('-'*100)
+                    print(new_details)
+            # else:
+            #     print("Name Not FOUND to update! Enter correct Name")
         elif task == 4:
-            # complete his as homework
+            # complete this as homework
             pass
         elif task == 5:
             file_path = input("Enter File Path Here (Hint: paste precontact.txt file path): ")
