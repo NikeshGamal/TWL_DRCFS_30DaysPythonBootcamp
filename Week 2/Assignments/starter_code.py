@@ -5,6 +5,7 @@
 
 import random
 import string 
+import re
 
 def rank(pwd: str) -> str:
     '''
@@ -33,7 +34,33 @@ def rank(pwd: str) -> str:
     Returns: rank -> rank of password; POOR / MODERATE / STRONG
     '''
     ## Start code here
+    regex_characters= "[^a-zA-Z0-9]+"
+    special_character = re.compile(regex_characters)
+    search_character = re.search(special_character,pwd)
+
+    regex_lower="[a-z]+"
+    lowercase_string = re.compile(regex_lower)
+    search_lower = re.search(lowercase_string,pwd)
+
+
+    regex_capital="[A-Z]+"
+    uppercase_string = re.compile(regex_capital)
+    search_capital = re.search(uppercase_string,pwd)
     
+
+    regex_numbers = "[0-9]+"
+    number_string = re.compile(regex_numbers)
+    search_number = re.search(lowercase_string,pwd)
+
+    rank="NOT DEFINED"
+    if len(pwd)<8 or False:
+        rank="POOR"
+    elif len(pwd)<= 10 or False:
+        rank="MODERATE"
+    elif search_capital and search_character and search_lower and search_number:
+        rank="STRONG"
+        # print(type(re.search(special_character,pwd)))
+
     ## End code here
     return rank
 
@@ -59,7 +86,7 @@ def option1():
     print('[INFO] '+'The given rankings can be found in Users-Pwds-Chked.txt')
     print('#'*80)
 
-def option2():
+def random_password_generator():
     '''
     Function to be executed when the user selects option 2 (generate password) in the main loop.
     
@@ -72,6 +99,33 @@ def option2():
         If N: Ask if they would like to generate a different password for this user (Y or N).
         Then the program loops back to the menu again offering displaying and offering to select 1, 2 or 3.
     '''
+    sp_ch_list=list(string.punctuation)
+    special_character=sp_ch_list[random.randint(0,len(sp_ch_list)-1)] +sp_ch_list[random.randint(0,len(sp_ch_list)-1)]+sp_ch_list[random.randint(0,len(sp_ch_list)-1)] +sp_ch_list[random.randint(0,len(sp_ch_list)-1)]
+
+    # print(special_character)
+    lower_list=string.ascii_lowercase
+
+    lower_case=lower_list[random.randint(0,len(lower_list)-1)] +lower_list[random.randint(0,len(lower_list)-1)]+lower_list[random.randint(0,len(lower_list)-1)]
+    # print(lower_case)
+
+    upper_list=string.ascii_uppercase
+    upper_case=upper_list[random.randint(0,len(upper_list)-1)] +upper_list[random.randint(0,len(upper_list)-1)]+upper_list[random.randint(0,len(upper_list)-1)]
+
+    # print(upper_case)
+    numbers=str(random.randint(0,9))+str(random.randint(0,9))+str(random.randint(0,9))
+    # print(numbers)
+
+    password_list=[lower_case,upper_case,special_character,numbers]
+    # print(password_list)
+    # print("*"*100)
+    random.shuffle(password_list)
+
+    generated_password=""
+
+    for ele in password_list:
+        generated_password+=ele
+    
+    return generated_password
 
     def generate() -> str:
         '''
@@ -119,7 +173,60 @@ def main():
         # exit the loop by using the break command if the user selects 3 other wise use option1() and option 2() function 
 
         ## START CODE HERE
+        option = int(inp)
+        # print(type(option))
+        if option == 1:
+            with open("Users-Pwds(10).txt","r") as file:
+                contents = file.read()[:-1].split("\n")
+                # print(contents)
+            for ele in contents:
+                # print(ele)
+                details=ele.split(",")
+                username,password = details
+                # print(username,password)
+            #function to detemine the password strength
+                strength=rank(password)
+                # print(strength)
+                # output_result = ','.join((username,password,strength))
+                # print(output_result)
+                with open("Users-Pwds-Chked.txt",'a') as output:
+                    output.write(','.join((username,password,strength)))
+                    output.write("\n")
+            print("Rank Password from an existing file Successfull")
+        elif option == 2:
+            while True:
+                username=input("Enter desirable username not more than 20 characters: ")
+                if len(username)<=20:
+                    break
+            print(username)
 
+            password = random_password_generator()
+            print(f"Username: {username}")
+            print(f"Newly Generated Password: {password}")
+
+            
+            ans=input("Would you like to save the password? (Y or N)").upper()
+
+            if ans =="Y":
+                with open("Users-Pwds.txt","a") as file:
+                    file.write(','.join((username,password)))
+                    print("Password saved successfully")
+            else:
+                ans=input("Would you like to generate another password? (Y or N)").upper()
+                if ans=="Y":
+                    new_generated_password=random_password_generator()
+                    password-new_generated_password
+                else:
+                    print("Previously generated password is saved as password")
+                    with open("Users-Pwds.txt","a") as file:
+                        file.write("\n")
+                        file.writelines(','.join((username,password)))
+                        # TODO: line is not breaking
+        elif option ==3:
+            print("End of program")
+            break
+        else:
+            print("ENTER THE CORRECT OPTION FROM THE GIVEN OPTIONS")
         ## END CODE HERE
 
 
