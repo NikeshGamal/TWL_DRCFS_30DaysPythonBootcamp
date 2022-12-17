@@ -5,7 +5,7 @@
 
 import random
 import string 
-import re
+# import re
 
 def rank(pwd: str) -> str:
     '''
@@ -69,29 +69,7 @@ def rank(pwd: str) -> str:
     ## End code here
     return rank
 
-def option1():
-    '''
-    Helper function that will be executed when user selects option 1 in the initial case.
-    '''
-    # Steps to follow:
-    # 1. Ask user to rank password from either Users-Pwds.txt or a custom file (second part for bonus only you can skip this)
-    # 2. Open the file containing username and password in each line and a file to store the ranked password information(Users-Pwds-Chked.txt).
-    # 2.1 ## !IMPORTANT ## Store the list of username,passwords in a variable called usrpwds. 
-    # 3. Use the rank() function to rank the password
-    # 4. Write to the Users-Pwds-Chked.txt file (username,password,rank) in each line as string. Omit the brackets and only fill up the actual values. 
-    # 5. Close necessary files and print to terminal.
-    
-    ## START CODE HERE
-
-    ## END CODE HERE
-
-    print('#'*80)
-    # [INFO] Be sure to change userpwds with the name of variable that you give to the list of passwords
-    print('[INFO] '+'Number of passwords checked:',str(len(usrpwds))) 
-    print('[INFO] '+'The given rankings can be found in Users-Pwds-Chked.txt')
-    print('#'*80)
-
-def random_password_generator():
+def random_password_generator()->str:
     '''
     Function to be executed when the user selects option 2 (generate password) in the main loop.
     
@@ -132,39 +110,7 @@ def random_password_generator():
     
     return generated_password
 
-    def generate() -> str:
-        '''
-        Helper function to generate password.
-        Returns: A string pwd with strong ranking in our ranking system.
-        '''
-        # Starter code, Ualphabets contains all upper case alphabets
-        # Lalphabets condains all lowercase alphabets
-        # chars contains all special characters and digits contains all numeric digits
-        Ualphabets = string.ascii_uppercase
-        Lalphabets = string.ascii_lowercase
-        chars = string.punctuation
-        digits = string.digits
-        pwd = ''
-        # Hint: user random.choice to select a random Upperalphabet(Ualphabet), Lalphabet, chars, and digits. Join then all together in pwd and check ranking
-        # While the required ranking is not met continue joining new Ualphabet, Lalphabet, chars and digits.
-        
-        ## START CODE HERE
-
-        ## END CODE HERE
-        return pwd
     
-    # Ask for username and check 20 character limits
-
-    ## START CODE HERE
-
-    ## END CODE HERE
-
-    # Generate the password using generate() and follow the steps as guided in the function header. 
-
-    ## START CODE HERE
-
-    ## END CODE HERE
-
 def main():
 
     print('Welcome to my password ranking program')
