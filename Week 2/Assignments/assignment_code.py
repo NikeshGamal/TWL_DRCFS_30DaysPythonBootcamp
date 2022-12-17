@@ -58,7 +58,7 @@ def rank(pwd: str) -> str:
     
     rank="NOT DEFINED"
     #here, True+True+True also acts as number addition which will results to 3 
-    #similarly True+False+True+False ==2 
+    #similarly True+False+True+False ==2
     if len(pwd)<8 or (has_lower(pwd)+has_numbers(pwd)+has_special_character(pwd)+has_upper(pwd))<3:
         rank="POOR"
     elif len(pwd)<= 10 and (has_lower(pwd)+has_numbers(pwd)+has_special_character(pwd)+has_upper(pwd))>=3:
