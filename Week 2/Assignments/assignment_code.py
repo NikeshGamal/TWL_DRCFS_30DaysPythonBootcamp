@@ -36,7 +36,8 @@ def rank(pwd: str) -> str:
 
     ## Start code here
     # special_characters="! + - = ? # % * @ & ^ $ _".split(" ")
-    special_list = "! + - = ? # % * @ & ^ $ _".split(" ")
+    special_list = list(string.punctuation)
+    special_list.remove(",")
     # print(special_list)
 
     def has_lower(pwd):
@@ -83,28 +84,35 @@ def random_password_generator()->str:
         Then the program loops back to the menu again offering displaying and offering to select 1, 2 or 3.
     '''
     sp_ch_list=list(string.punctuation)
+    #to remove , from the list as while making csv file if password contains , it will create issue while ranking
+    sp_ch_list.remove(',')
+    #picking random special characters for password generator
     special_character=sp_ch_list[random.randint(0,len(sp_ch_list)-1)] +sp_ch_list[random.randint(0,len(sp_ch_list)-1)]+sp_ch_list[random.randint(0,len(sp_ch_list)-1)] +sp_ch_list[random.randint(0,len(sp_ch_list)-1)]
 
-    # print(special_character)
+    
     lower_list=string.ascii_lowercase
-
+    #picking random lowercase characters for password generator
     lower_case=lower_list[random.randint(0,len(lower_list)-1)] +lower_list[random.randint(0,len(lower_list)-1)]+lower_list[random.randint(0,len(lower_list)-1)]
     # print(lower_case)
 
     upper_list=string.ascii_uppercase
+    #picking random uppercase characters for password generator
     upper_case=upper_list[random.randint(0,len(upper_list)-1)] +upper_list[random.randint(0,len(upper_list)-1)]+upper_list[random.randint(0,len(upper_list)-1)]
 
     # print(upper_case)
+    #picking random digits for password generator
     numbers=str(random.randint(0,9))+str(random.randint(0,9))+str(random.randint(0,9))
     # print(numbers)
 
     password_list=[lower_case,upper_case,special_character,numbers]
     # print(password_list)
     # print("*"*100)
+    #shuffling order of characters in passwordd
     random.shuffle(password_list)
 
     generated_password=""
 
+    #loop to concanetate
     for ele in password_list:
         generated_password+=ele
     
@@ -126,8 +134,36 @@ def main():
         ## START CODE HERE
         option = int(inp)
         # print(type(option))
+#-------------------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------
         if option == 1:
-            with open("Users-Pwds(10).txt","r") as file:
+            
+            while True:
+                print('-'*80)
+                filename = input("Enter the file path whose password you want to rank: ")
+                print('-'*80)
+                status=None
+                # print(type(open(filename,"r")))
+
+     #------------------------------------------------------------------------------------------------------------------------
+
+                #error handling so that open() will not be able to break the program if incorrect file or directory is entered
+                try:
+                    status = True if str(open(filename,"r")) else False
+                except  FileNotFoundError:
+                    pass
+
+                # print(status)
+                if status:
+                    # print(type(open(filename,"r")))
+                    break
+                else:
+                    print("No such file or directory \nPlease, enter correct file or directory")
+                    
+    #-------------------------------------------------------------------------------------------------------------------------
+            with open(filename,"r") as file:
+                # print(file)
+                # print(filename)
                 contents = file.read()[:-1].split("\n")
                 # print(contents)
             for ele in contents:
@@ -135,6 +171,7 @@ def main():
                 details=ele.split(",")
                 username,password = details
                 # print(username,password)
+                
             #function to detemine the password strength
                 strength=rank(password)
                 # print(strength)
@@ -144,6 +181,8 @@ def main():
                     output.write(','.join((username,password,strength)))
                     output.write("\n")
             print("Rank Password from an existing file Successfull")
+#-------------------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------
         elif option == 2:
             while True:
                 username=input("Enter desirable username not more than 20 characters: ")
@@ -178,9 +217,13 @@ def main():
                 with open("Users-Pwds.txt","a") as output:
                         output.write(','.join((username,password)))
                         output.write("\n")
+#-------------------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------
         elif option ==3:
             print("End of program")
             break
+#-------------------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------------------
         else:
             print("ENTER THE CORRECT OPTION FROM THE GIVEN OPTIONS")
         ## END CODE HERE
