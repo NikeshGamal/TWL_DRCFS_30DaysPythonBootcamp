@@ -1,4 +1,4 @@
-from logging import exception
+# from logging import exception
 from typing import Any
 
 def add_contact(name: str, email: str, phone: int) -> bool:
@@ -134,7 +134,7 @@ def main():
         ''')
         print('-'*100)
         task  = input("Enter Your Choice here: ")
-        task  = check_int_type(task)
+        task  = check_int_type(task) #int
 
         if task == 0:
             pass
@@ -145,9 +145,9 @@ def main():
             phone = check_int_type(phone)
 
             if phone and len(str(phone)) == 10:
-                res = add_contact(name, email, phone)
+                res = add_contact(name, email, phone) #res=1 i.e. True
                 print('-'*100)
-                print("Addition success" if res else "Addition failed")
+                print("Addition success" if res else "Addition failed") 
                 print('-'*100)
 
             else:
