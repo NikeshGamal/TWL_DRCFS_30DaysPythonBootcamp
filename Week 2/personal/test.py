@@ -1,70 +1,109 @@
-# file=open("passwords.txt","r") #read only mode
+# #1.error handling
+# #1.input --> username ,password
+# #csv-->     comma separated values
+# #O/p: nikesh,gamalnikesh
+# #----> join(" ")--->return string  split()-->list      string ko methods index,remove,count
 
-# actual_content = file.read()
+# #join()--->username password--> mini shah
+# # ','.join((username,password))
 
-# print(actual_content)
+# #error handling
+# """
+#  try:
+#     code
+#     if error sanga encountered
+#     goes to except
+# except type_of_error:  specidfic thaha xaina bhane __Exception as e
+#     code
+# """
+# status=True
+# while status:
+#     try:
+#         filename= input("enter the file path: ")
 
-# file.close()
+#         with open(filename,"r") as file:
+#             contents = file.read()
+#             print(contents)
+#         status=False
+#     except FileNotFoundError:
+#         print("No such file or directory")
 
-#---------------------------------------------
-#writing into file
-# mini = open("mini_text.txt","w")
-# #--> if present opened that particular file if not present it creates the file and then opens it
+# #input--username password ---kunaiyeuta file ma write garnu paryo csv--> username,password
 
-# mini.write("This is Mini's file \n")
-# mini.write("This is filehandling revision class \n")
+#slice--->paper cutting 
+
+#for eg:  n ike sh  ike
+
+# name ="Chandramukhi" #o/p--> chandra
+# #syntax: [starting_index: end_index]---> starting_index(inclusive) and end_index(exclusive)
+# res=name[0:7]
+# print(res)
+
+#1.file read, file write, join, split, slice , list comprehension
+
+#list _comprehension
+# sum=0
+# # for ind in range(0,5): #[0,1,2,3,4]
+# #     sum =sum+ind
+
+# # sum = [print(sum+ind) for ind in range(0,5)]
+
+# print(sum)
+# 
+
+# any() all()
+
+# or---> if any of the condition is true then True
+# and--> if all of the conditions are true only then True
+
+# any-->or
+# all-->and
+
+#1. name --> if any small letters xa bhane print there is lowercase letters
+#2. name--> if all uppercase letters ho bhen print all the letters are in uppercase
+
+name="MINI"
+
+#loop
+status = False
+for ch in name:
+    print(ch)
+    #if encountered with lower case then change status to True
+    if True:
+        status = True
+    
+def has_lower(name):
+    return True if any([ch.islower() for ch in name]) else False  #ternary operator
+
+if status:
+    print("There is atleast one lowercase letters")
+else:
+    print("There are no any lowercase letters")
+
+# any([True,False,True])-->True
+# all([[True,False,True]])---->False
+# all([True,True,True])-->True
 
 
-# mini.close()
+import string
+list_special = list(string.punctuation)
+print(list_special)
 
-#append--> existing contet kai continue ma add content
+user_input = "pokhara#$@"
+# for ch in user_input:
+#     if ch in list_special:
+#         print(f"{ch} is special character")
 
-# mini = open("mini_text.txt","a")
-# mini.write("This line uses write function \n")
-# mini.write("THis line is to show append \n")
-# mini.close()
+mylist=[ch if ch in list_special else "" for ch in user_input]
+print(mylist)
+'''
+  gamal123--> a-True b-False c-False d-true
 
+ .islower() .isupper() .isdigits()
+'''
 
-# with ---> loop analogy
-
-# with open("passwords.txt","r") as file:
-#     print(file.read())
-
-
-#--------------------String-->spilt-------------------------------
-
-# name="NikeshGamalMiniShah"
-# print(name)
-
-# new_list=name.split("l")
-# print(new_list)
-
-
-
-#the password of ashim is pwd120
-
-#the password of {username} is {password}
-file = open("passwords.txt","r")
-content =file.read()
-new_list = content.split("\n") #--list
-
-print("---------------")
-print(new_list)
-print("---------------")
-# new_list = ["---","-----","-----"]
-
-
-
-
-
-#1.loop each element of list
-# print("Inside loop")
-#2. each element lai separate or split so that we can obtain username and password
-
-#3.print
-
-for ele in new_list:
-    username,password=ele.split(",") #--its return 2 values 
-    print(f"The password of {username} is {password}")
-
-#enumerate--> yeuta counter aafai geenerate garxa ani automatically increase garxa tyo counter ko value 
+#1.take input ask from user then 
+#a.contains lowercase or not
+#b. contains uppercase or not
+#c. contains special character or not
+#d contains numbers or not
