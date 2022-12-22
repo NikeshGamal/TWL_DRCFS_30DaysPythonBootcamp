@@ -4,7 +4,7 @@ import bs4
 import requests
 
 #1. requesting raw text from the link 
-def request_url(url: str)->str:
+def request_url(url: str)-> str:
     return requests.get(url).text
 
 #2. get the parsed_html to unparsed_html text
@@ -28,7 +28,13 @@ def get_details(soup:bs4.BeautifulSoup)->list:
     product_details=[]
     order_list = soup.find_all('li',class_='item product product-item')
     for ind,ele in enumerate(order_list):
+        '''
+            nest the items well, you may not get the desired output sometimes
+        '''
         container = ele.div
+        '''
+            yesari dherai nai nest garnu vanda aauta element agadi ko class/id lera garda kasto hunthyo hola...
+        '''
         product_name = container.strong.a.string.strip()
         product_price = container.div.span.span.span.span.string.strip()
         # product_details["product_name"]=product_name
@@ -58,13 +64,29 @@ def main():
         # product_name,product_price = ele
         # print(ele["product_name"],ele["product_price"])
 
-        res='---'.join((ele["product_name"],ele["product_price"]))
-        print(res)
-        print()
+        res='\t\t ----- \t\t'.join((ele["product_name"],ele["product_price"]))
+#         print(res)
         with open("scrapped_data.txt","a") as file:
             file.write(res)
-            file.write("\n")
+            file.write("\n\n")
 
 
 if __name__ == '__main__':
     main()
+    
+    
+'''
+    project complete vaye paxi chai make sure you remove those unnecessary lines of code hai
+'''
+
+'''
+    halka operators bich chai space dida clean dekhinxa like "html_string = request_url(website_url)" or even "def request_url(url: str)-> str:...."
+'''
+
+'''
+    output chai hakla messed up jasto lagyo. try to present it clearly.
+'''
+
+'''
+    otherwise, looks nice. well done.
+'''
