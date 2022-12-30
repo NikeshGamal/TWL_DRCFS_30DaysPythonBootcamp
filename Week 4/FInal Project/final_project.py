@@ -68,8 +68,8 @@ def track_record(filename, username: str, email:str):
 
 def main():
     while True:
-        print('\n******************---------WELCOME TO SCRAPPER--------**********************\n')
-        print('\n******************Choose your option***********************')
+        print('\n******************---------WELCOME TO SCRAPPER--------**********************')
+        print('\n/*****************Choose your option***********************')
         print('1. MEN Fashion\n2. WOMEN Fashion \n3. Health Care Products \n4.Top News\n5. Exit\n')
 
         option = int(input('Enter your option: '))
