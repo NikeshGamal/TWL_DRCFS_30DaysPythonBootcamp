@@ -10,8 +10,11 @@ User Track records are to be used for the future.
 For instance:
 
 Men_Fashion_user_record.txt---> to store username and emails that scrape Men Fashion section
+
 Women_Fashion_user_record.txt---> to store username and emails that scrape Women Fashion section
+
 Health_product_user_record.txt---> to store username and emails that scrape Health Care Product section
+
 news_reader_record.txt---> to store username and emails that scrape News section
 
 Note:
