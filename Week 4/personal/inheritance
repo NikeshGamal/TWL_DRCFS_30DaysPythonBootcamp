@@ -1,0 +1,50 @@
+class Animal:
+    
+    def __init__(self, name:str , age: int, type_: str)->None:
+        self.name = name
+        self.age = age
+        self.type_ = type_
+
+        #private attribute attrivute ko aagadi _ xa bhane we indicate that that attribute is private attribute
+        self._ate  = True
+
+    def __str__(self):
+        return f"I am {self.name}. My name is {self.age} and I'm a {self.type_}"
+
+    def _do_something_private(self)-> None:
+        ...
+
+    def eat_food(self):
+        self._ate = True
+
+    def has_eaten(self):
+        return self._ate
+
+
+    
+# kaley = Animal("Kaley",22,"DOG")
+
+# #also can be accessed the private attribute
+# print(kaley._ate)
+
+class Dog(Animal):
+    def __init__(self, name:str , age:int)-> None:
+        # self.name = name
+        # self.age  = age
+        # self.type_ = "DOG"
+        
+        #better way to call Parent init()
+        # Animal.__init__(self, name , age ,"DOG")
+
+        #even better 
+        super().__init__(name,age,'DOG')
+
+
+    def bark(self) -> str:
+        return ('Bhaau bhaau')
+
+
+kalu = Dog("Kaley",22)
+
+# print(kalu.has_eaten())
+print(kalu.bark())

@@ -13,27 +13,27 @@ MacBook Air 13"		 ----- 		रू 237,900
 Inspiron 3515 R7-3700U-8GB-512GB-15.6 FHD-
 Radeon(TM) Graphics-Win11-BLK/SLV(Backpack)		 ----- 		रू 95,000
 
-Apple Mac Book Pro 13.3"  8GB RAM 256 GB Storage		 ----- 		रू 205,000
+Apple Mac Book Pro 13.3" 8GB RAM 256 GB Storage		 ----- 		रू 205,000
 
 HP Envy 13 / i5 11th Gen / 8GB RAM / 256GB SSD / 13.3" FHD Display		 ----- 		रू 105,000
 
-Dell G5 G5510 / i7 10th Gen 8 Core / RTX 3050 / 8GB RAM / 512GB SSD / 15.6"  FHD Display		 ----- 		रू 155,000
+Dell G5 G5510 / i7 10th Gen 8 Core / RTX 3050 / 8GB RAM / 512GB SSD / 15.6" FHD Display		 ----- 		रू 155,000
 
-Dell G5  G5511 i5 11th Gen / RTX 3050 / 8GB RAM / 512GB SSD / 15.6" FHD Display		 ----- 		रू 133,000
+Dell G5 G5511 i5 11th Gen / RTX 3050 / 8GB RAM / 512GB SSD / 15.6" FHD Display		 ----- 		रू 133,000
 
 Asus VivoBook 15 X515EP i5 11th Gen / NVIDIA MX330 / 8GB RAM / 512GB SSD / 15.6" FHD display / Backlight Keyboard		 ----- 		रू 103,000
 
 Asus VivoBook 15 K513EA i5 11th Gen / 8GB RAM / 512GB SSD / 15.6" FHD display		 ----- 		रू 105,000
 
-MSI GP66 Leopard 11UG /i7 / 8 Core / RTX 3070/ 16GB RAM / 512GB SSD / 15.6" FHD  display		 ----- 		रू 288,000
+MSI GP66 Leopard 11UG /i7 / 8 Core / RTX 3070/ 16GB RAM / 512GB SSD / 15.6" FHD display		 ----- 		रू 288,000
 
 Asus ZenBook 14 Ryzen 5/ 8GB RAM / 256GB SSD / 14'' FHD display		 ----- 		रू 99,500
 
 Acer Predator Helios 300 / i7 11th Gen 8 Core / RTX 3060 / 16GB RAM / 1TB SSD / 15.6" QHD Display , RGB		 ----- 		रू 213,000
 
-HP Envy 13  i7 10th Gen / 8GB RAM / 512GB SSD / 13.3" OLED TouchScreen Display		 ----- 		रू 140,000
+HP Envy 13 i7 10th Gen / 8GB RAM / 512GB SSD / 13.3" OLED TouchScreen Display		 ----- 		रू 140,000
 
-HP Pavilion  ‎14t-dv000 i5 11th Gen / 8GB RAM / 256GB SSD / 14" FHD Display		 ----- 		रू 85,000
+HP Pavilion ‎14t-dv000 i5 11th Gen / 8GB RAM / 256GB SSD / 14" FHD Display		 ----- 		रू 85,000
 
 HP 14" HD AMD Ryzen 3 / 4GB ram/ 128GB SSD		 ----- 		रू 55,000
 
@@ -49,17 +49,17 @@ HP Laptop 15-dy1059ms 15.6"/ ryzen 5 / 8GB RAM / 256GB SSD		 ----- 		रू 77,0
 
 Lenovo IdeaPad Gaming 3 , i7 , 10th Gen / GTX 1650 / 16GB RAM / 256GB /1TB HDD / 15.6" FHD display		 ----- 		रू 137,000
 
-Lenovo Legion 5  i7 10th Gen / GTX 1650ti / 15.6'' FHD/ 8GB RAM / 512GB SSD		 ----- 		रू 157,000
+Lenovo Legion 5 i7 10th Gen / GTX 1650ti / 15.6'' FHD/ 8GB RAM / 512GB SSD		 ----- 		रू 157,000
 
-Lenovo Legion 5  Ryzen 7 5800H / RTX 3050Ti / 8GB RAM / 512GB SSD / 15.6'' FHD Display / 144Hz Refresh Rate		 ----- 		रू 173,000
+Lenovo Legion 5 Ryzen 7 5800H / RTX 3050Ti / 8GB RAM / 512GB SSD / 15.6'' FHD Display / 144Hz Refresh Rate		 ----- 		रू 173,000
 
 Lenovo V14 Intel Core i3 10th Gen ,14-inch HD (4GB RAM/ 1TB HDD)		 ----- 		रू 61,000
 
-Acer Aspire 5  i5 11th Gen / 8GB RAM / 256GB SSD / 14" FHD Display		 ----- 		रू 85,000
+Acer Aspire 5 i5 11th Gen / 8GB RAM / 256GB SSD / 14" FHD Display		 ----- 		रू 85,000
 
 Acer Nitro 5 i7 10TH GEN / 8GB RAM/ 512GB SSD/ GTX 1650ti/ 15.6" 144Hz FHD		 ----- 		रू 155,000
 
-Acer Nitro 5 AMD Ryzen 5 4600H / GTX 1650 / 15.6" FHD  / 8GB RAM / 256GB SSD		 ----- 		रू 112,000
+Acer Nitro 5 AMD Ryzen 5 4600H / GTX 1650 / 15.6" FHD / 8GB RAM / 256GB SSD		 ----- 		रू 112,000
 
 Acer Nitro 5 i5 10TH GEN / 8GB RAM/ 512GB SSD/ GTX 1650/ 15.6" FHD 144Hz		 ----- 		रू 122,000
 
